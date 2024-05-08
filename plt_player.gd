@@ -11,6 +11,8 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
+var inventory = {"1": 0, "2":0, "3":0}
+
 func _ready():
 	menu_instance=menu_scene.instantiate()
 	$Camera2D.add_child.call_deferred(menu_instance)
@@ -29,7 +31,12 @@ func gun_physics(delta):
 			
 		if (($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object) or $Mouse.overlaps_body(object)) and Input.is_action_pressed("right"):
 			dis = move_toward(dis, 0.0, 2)
+			print(dis)
 			object.global_position=self.global_position+(self.global_position.direction_to(get_global_mouse_position())*dis)
+			if dis < 25:
+				if inventory.has(object):
+					inventory[object]+=1
+			
 		if Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object):
 			object.grav_on = true
 			
