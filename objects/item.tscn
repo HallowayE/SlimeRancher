@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://t515hkq7clr2"]
+
+[ext_resource type="Script" path="res://objects/object.gd" id="1_8kxcp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7573k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4xy7"]
+
+[node name="item" type="CharacterBody2D" groups=["Item", "Object"]]
+script = ExtResource("1_8kxcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_7573k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g4xy7")

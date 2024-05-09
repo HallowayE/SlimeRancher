@@ -11,7 +11,9 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
-var inventory = {"1": 0, "2":0, "3":0}
+var inventory = [[null, 0], [null, 0], [null, 0]]
+
+
 
 func _ready():
 	menu_instance=menu_scene.instantiate()
@@ -19,7 +21,7 @@ func _ready():
 	menu_instance.hide()
 	
 
-func gun_physics(delta):
+func gun_physics():
 	$Mouse.position=get_local_mouse_position()
 	$RayCast2D.target_position=get_local_mouse_position()
 	
@@ -31,11 +33,15 @@ func gun_physics(delta):
 			
 		if (($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object) or $Mouse.overlaps_body(object)) and Input.is_action_pressed("right"):
 			dis = move_toward(dis, 0.0, 2)
-			print(dis)
 			object.global_position=self.global_position+(self.global_position.direction_to(get_global_mouse_position())*dis)
 			if dis < 25:
-				if inventory.has(object):
-					inventory[object]+=1
+				for i in inventory:
+					if i[0] == null or i[0] == object:
+						i[0]=object.get_node()
+						object.queue_free()
+						i[1]+=1
+						print(inventory)
+						break
 			
 		if Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object):
 			object.grav_on = true
@@ -43,7 +49,7 @@ func gun_physics(delta):
 
 
 func _physics_process(delta):
-	gun_physics(delta)
+	gun_physics()
 	if Input.is_action_just_pressed("ui_cancel"):
 		menu_instance.show()
 		get_tree().paused = true

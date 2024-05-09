@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=7 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
-[ext_resource type="PackedScene" uid="uid://bx3pmsm4et3eb" path="res://object.tscn" id="3_wfm6y"]
+[ext_resource type="PackedScene" uid="uid://c7reqs2cfar1j" path="res://objects/object.tscn" id="3_wfm6y"]
+[ext_resource type="PackedScene" uid="uid://t515hkq7clr2" path="res://objects/item.tscn" id="4_bu1kp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eqm2"]
 texture = ExtResource("2_30uvs")
@@ -451,3 +452,6 @@ position = Vector2(-2.15411, -4.02081)
 position = Vector2(190.944, 4.64172)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="item" parent="." instance=ExtResource("4_bu1kp")]
+position = Vector2(241.891, 8.08197)
