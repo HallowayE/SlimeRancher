@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=6 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
-[ext_resource type="PackedScene" uid="uid://c7reqs2cfar1j" path="res://objects/object.tscn" id="3_wfm6y"]
-[ext_resource type="PackedScene" uid="uid://t515hkq7clr2" path="res://objects/item.tscn" id="4_bu1kp"]
+[ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="3_iwgkb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eqm2"]
 texture = ExtResource("2_30uvs")
@@ -448,10 +447,7 @@ layer_0/tile_data = PackedInt32Array(262134, 131072, 1, 327670, 131072, 1, 39320
 [node name="plt_player" parent="." instance=ExtResource("1_dhcvt")]
 position = Vector2(-2.15411, -4.02081)
 
-[node name="Node2D" parent="." instance=ExtResource("3_wfm6y")]
-position = Vector2(190.944, 4.64172)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="item" parent="." instance=ExtResource("4_bu1kp")]
-position = Vector2(241.891, 8.08197)
+[node name="slime" parent="." instance=ExtResource("3_iwgkb")]
+position = Vector2(212.398, 11.8263)
