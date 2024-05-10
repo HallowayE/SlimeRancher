@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=7 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
 [ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="3_iwgkb"]
+[ext_resource type="PackedScene" uid="uid://boo1y2nxq86cj" path="res://objects/items/food/food.tscn" id="4_ejb67"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eqm2"]
 texture = ExtResource("2_30uvs")
@@ -451,3 +452,6 @@ position = Vector2(-2.15411, -4.02081)
 
 [node name="slime" parent="." instance=ExtResource("3_iwgkb")]
 position = Vector2(212.398, 11.8263)
+
+[node name="food" parent="." instance=ExtResource("4_ejb67")]
+position = Vector2(334.5, -6.5)

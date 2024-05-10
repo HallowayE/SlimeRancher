@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://boo1y2nxq86cj"]
+
+[ext_resource type="PackedScene" uid="uid://t515hkq7clr2" path="res://objects/items/item.tscn" id="1_b3n30"]
+[ext_resource type="Script" path="res://objects/items/food/food.gd" id="2_bv146"]
+
+[node name="food" groups=["Food"] instance=ExtResource("1_b3n30")]
+script = ExtResource("2_bv146")
