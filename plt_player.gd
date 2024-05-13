@@ -35,13 +35,15 @@ func gun_physics():
 			dis = move_toward(dis, 0.0, 2)
 			object.global_position=self.global_position+(self.global_position.direction_to(get_global_mouse_position())*dis)
 			if dis < 25:
-				for i in inventory:
-					if i[0] == null or i[0] == object.get_scene_file_path():
-						i[0]=object.get_scene_file_path()
-						object.queue_free()
-						i[1]+=1
-						print(inventory)
-						break
+				if object.is_in_group("Item"):
+					for i in inventory:
+						if i[0] == null or i[0] == object.get_scene_file_path():
+							i[0]=object.get_scene_file_path()
+							object.queue_free()
+							i[1]+=1
+							print(inventory)
+							break
+					object.grav_on = true
 			
 		if Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object):
 			object.grav_on = true
