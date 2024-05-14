@@ -30,6 +30,7 @@ func point_towards(to):
 
 
 func _physics_process(delta):
+	STATES
 	
 	if not is_on_floor() and grav_on:
 		velocity.y += gravity * delta

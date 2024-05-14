@@ -8,6 +8,13 @@ const JUMP_VELOCITY = -400.0
 var grav_on = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+enum SUCK_STATES{
+	SUCKING,
+	STUCK,
+	SHOOT
+}
+
+@onready var col_shape = $CollisionShape2D
 
 func _physics_process(delta):
 	# Add the gravity.

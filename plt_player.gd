@@ -13,12 +13,13 @@ var menu_instance = null
 
 var inventory = [[null, 0], [null, 0], [null, 0]]
 
-
+var stuck = false
 
 func _ready():
 	menu_instance=menu_scene.instantiate()
 	$Camera2D.add_child.call_deferred(menu_instance)
 	menu_instance.hide()
+	
 	
 
 func gun_physics():
@@ -44,8 +45,20 @@ func gun_physics():
 							print(inventory)
 							break
 					object.grav_on = true
+				else:
+					stuck = true
+		if stuck:
+			object.grav_on=false
+			object.global_position=self.global_position+(self.global_position.direction_to(get_global_mouse_position())*25)
+			object.col_shape.disabled= true
+			if Input.is_action_just_pressed("left"):
+				stuck = false
+				object.col_shape.disabled= false
+				object.grav_on=true
+				object.velocity = self.global_position.direction_to(object.global_position)*100
+				
 			
-		if Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object):
+		if (Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object)) and object.col_shape.disabled == false:
 			object.grav_on = true
 			
 
