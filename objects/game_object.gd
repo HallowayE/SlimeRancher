@@ -1,4 +1,4 @@
-class_name game_object extends CharacterBody2D
+class_name game_object extends RigidBody2D
 
 
 const SPEED = 100.0
@@ -18,29 +18,23 @@ enum SUCK_STATES{
 @onready var col_shape = $CollisionShape2D
 
 func _physics_process(delta):
+
 	for object in get_tree().get_nodes_in_group("Object"):
-		if get_last_slide_collision() == object and object.get_last_slide_collision()==self and object!=self:
-			col_shape.disabled=true
-			object.col_shape.disabled=true
-			object.velocity = velocity
-			velocity=-velocity
-			col_shape.disabled=false
-			object.col_shape.disabled=false
+		pass
+
 		
 	# Add the gravity.
-	if not is_on_floor() and grav_on:
-		velocity.y += gravity * delta
+
+	gravity_scale=int(grav_on)
+
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+

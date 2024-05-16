@@ -57,7 +57,7 @@ func gun_physics():
 				stuck = false
 				object.col_shape.disabled= false
 				object.grav_on=true
-				object.velocity = self.global_position.direction_to(object.global_position)*500
+				object.linear_velocity = self.global_position.direction_to(object.global_position)*500
 				
 			
 		if (Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object)) and object.col_shape.disabled == false:

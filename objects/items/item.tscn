@@ -6,7 +6,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4xy7"]
 
-[node name="item" type="CharacterBody2D" groups=["Item", "Object"]]
+[node name="item" type="RigidBody2D" groups=["Item", "Object"]]
 script = ExtResource("1_kb31b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
