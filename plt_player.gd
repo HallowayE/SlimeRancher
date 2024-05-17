@@ -11,17 +11,29 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
-var inventory = [[null, 0], [null, 0], [null, 0]]
+var inventory = []
 
 var stuck = false
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+
+@export var data = {
+	"max_health": 100.0,
+	"health": 100,
+	"energy": 100,
+	"money": 0,
+	"tanks": 3,
+	"tank_size": 50,
+	"secondaries": [],
+}
 
 func _ready():
 	p_HUD.show()
 	menu_instance=menu_scene.instantiate()
 	$Camera2D.add_child.call_deferred(menu_instance)
 	menu_instance.hide()
+	for i in range(data.tanks):
+		inventory.append([null, 0])
 	
 	
 

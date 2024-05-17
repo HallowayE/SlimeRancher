@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://conyypnlssger"]
+[gd_scene load_steps=5 format=3 uid="uid://conyypnlssger"]
 
+[ext_resource type="Script" path="res://player_hud.gd" id="1_6lw24"]
 [ext_resource type="Texture2D" uid="uid://dfsmq1nmh2us7" path="res://assets/sprites/Tank.png" id="1_7ujfv"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_bbahw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f5t5y"]
+
 [node name="PlayerHUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_6lw24")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 9
@@ -12,7 +18,8 @@ grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Tanks" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -24,7 +31,22 @@ offset_right = 272.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+[node name="Tank" type="Sprite2D" parent="Tanks"]
 position = Vector2(128, 96)
 scale = Vector2(3, 3)
 texture = ExtResource("1_7ujfv")
+
+[node name="back" type="Sprite2D" parent="Tanks/Tank"]
+modulate = Color(0.300781, 0.300781, 0.300781, 1)
+show_behind_parent = true
+position = Vector2(0, 0.291656)
+scale = Vector2(26, 26.0833)
+texture = SubResource("CanvasTexture_bbahw")
+
+[node name="insides" type="Sprite2D" parent="Tanks/Tank"]
+modulate = Color(0.52549, 0.643137, 0.615686, 1)
+show_behind_parent = true
+position = Vector2(-13, -11)
+scale = Vector2(26, 23)
+texture = SubResource("CanvasTexture_f5t5y")
+centered = false
