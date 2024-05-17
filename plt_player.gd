@@ -15,7 +15,10 @@ var inventory = [[null, 0], [null, 0], [null, 0]]
 
 var stuck = false
 
+@onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+
 func _ready():
+	p_HUD.show()
 	menu_instance=menu_scene.instantiate()
 	$Camera2D.add_child.call_deferred(menu_instance)
 	menu_instance.hide()

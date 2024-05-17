@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://objects/items/slimes/slime.gd" id="2_a02iv"]
 [ext_resource type="Texture2D" uid="uid://oe4u0c5ql40d" path="res://icon.svg" id="3_m8eaj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4rewa"]
-radius = 8.0
-height = 20.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ektcp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w55uj"]
 radius = 248.805
 
 [node name="slime" instance=ExtResource("1_6trn8")]
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 2)
 script = ExtResource("2_a02iv")
 
 [node name="Sprite2D" parent="." index="0"]
@@ -21,7 +21,7 @@ texture = ExtResource("3_m8eaj")
 
 [node name="CollisionShape2D" parent="." index="1"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_4rewa")
+shape = SubResource("CircleShape2D_ektcp")
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 

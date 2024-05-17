@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=9 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
 [ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="3_iwgkb"]
 [ext_resource type="PackedScene" uid="uid://boo1y2nxq86cj" path="res://objects/items/food/food.tscn" id="4_ejb67"]
 [ext_resource type="PackedScene" uid="uid://c7reqs2cfar1j" path="res://objects/game_object.tscn" id="5_ihkj3"]
+[ext_resource type="PackedScene" uid="uid://conyypnlssger" path="res://player_hud.tscn" id="6_h8xn8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eqm2"]
 texture = ExtResource("2_30uvs")
@@ -459,3 +460,5 @@ position = Vector2(334.5, -6.5)
 
 [node name="object" parent="." instance=ExtResource("5_ihkj3")]
 position = Vector2(-19.3859, 40.4525)
+
+[node name="PlayerHUD" parent="." instance=ExtResource("6_h8xn8")]
