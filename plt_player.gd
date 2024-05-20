@@ -11,7 +11,7 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
-
+var select = 1
 
 var stuck = false
 
@@ -80,9 +80,28 @@ func gun_physics():
 			object.grav_on = true
 			
 
+func shoot(selected):
+	if data.inventory[selected][1] > 0:
+		var shoot = load(data.inventory[selected][0])
+		var shot = shoot.instantiate()
+		shot.position = self.position
+		$"..".add_child.call_deferred(shot)
+		data.inventory[selected][1]-=1
+	
 
 func _physics_process(delta):
 	gun_physics()
+	
+	if Input.is_action_pressed("1"):
+		select = 0
+	if Input.is_action_pressed("2"):
+		select = 1
+	if Input.is_action_pressed("3"):
+		select = 2
+		
+	if Input.is_action_pressed("left"):
+		shoot(select)
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		menu_instance.show()
 		get_tree().paused = true
