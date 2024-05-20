@@ -31,22 +31,65 @@ offset_right = 272.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Tank" type="Sprite2D" parent="Tanks"]
+[node name="Tank1" type="Sprite2D" parent="Tanks"]
 position = Vector2(128, 96)
 scale = Vector2(3, 3)
 texture = ExtResource("1_7ujfv")
 
-[node name="back" type="Sprite2D" parent="Tanks/Tank"]
+[node name="back" type="Sprite2D" parent="Tanks/Tank1"]
 modulate = Color(0.300781, 0.300781, 0.300781, 1)
 show_behind_parent = true
 position = Vector2(0, 0.291656)
 scale = Vector2(26, 26.0833)
 texture = SubResource("CanvasTexture_bbahw")
 
-[node name="insides" type="Sprite2D" parent="Tanks/Tank"]
+[node name="insides" type="Sprite2D" parent="Tanks/Tank1"]
 modulate = Color(0.52549, 0.643137, 0.615686, 1)
 show_behind_parent = true
-position = Vector2(-13, -11)
+position = Vector2(-13, 12)
 scale = Vector2(26, 23)
 texture = SubResource("CanvasTexture_f5t5y")
 centered = false
+offset = Vector2(0, -1)
+
+[node name="Tank2" type="Sprite2D" parent="Tanks"]
+position = Vector2(256, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("1_7ujfv")
+
+[node name="back" type="Sprite2D" parent="Tanks/Tank2"]
+modulate = Color(0.300781, 0.300781, 0.300781, 1)
+show_behind_parent = true
+position = Vector2(0, 0.291656)
+scale = Vector2(26, 26.0833)
+texture = SubResource("CanvasTexture_bbahw")
+
+[node name="insides" type="Sprite2D" parent="Tanks/Tank2"]
+modulate = Color(0.52549, 0.643137, 0.615686, 1)
+show_behind_parent = true
+position = Vector2(-13, 12)
+scale = Vector2(26, 23)
+texture = SubResource("CanvasTexture_f5t5y")
+centered = false
+offset = Vector2(0, -1)
+
+[node name="Tank3" type="Sprite2D" parent="Tanks"]
+position = Vector2(384, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("1_7ujfv")
+
+[node name="back" type="Sprite2D" parent="Tanks/Tank3"]
+modulate = Color(0.300781, 0.300781, 0.300781, 1)
+show_behind_parent = true
+position = Vector2(0, 0.291656)
+scale = Vector2(26, 26.0833)
+texture = SubResource("CanvasTexture_bbahw")
+
+[node name="insides" type="Sprite2D" parent="Tanks/Tank3"]
+modulate = Color(0.52549, 0.643137, 0.615686, 1)
+show_behind_parent = true
+position = Vector2(-13, 12)
+scale = Vector2(26, 23)
+texture = SubResource("CanvasTexture_f5t5y")
+centered = false
+offset = Vector2(0, -1)

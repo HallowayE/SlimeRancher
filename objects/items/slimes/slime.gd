@@ -43,7 +43,7 @@ func _physics_process(delta):
 		if towards == Vector2():
 			linear_velocity=(Vector2(randf_range(-1, 1), randf_range(0, 1.5))).normalized()*JUMP_VELOCITY
 		else:
-			linear_velocity = -(towards+Vector2(randf_range(-1, 1), 0.1)).normalized()*JUMP_VELOCITY
+			linear_velocity = -(towards+Vector2(randf_range(-1, 1), -0.5)).normalized()*JUMP_VELOCITY
 		ai_timer=ai_timer_max
 
 	

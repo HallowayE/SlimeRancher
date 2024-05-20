@@ -5,33 +5,14 @@ extends CanvasLayer
 @onready var tanks = $Tanks/Tank
 
 
-const TANK_OFFSET = 40
-
-func create_tank():
-	var n_tank = Sprite2D.new()
-	n_tank = tanks.duplicate()
-	n_tank.scale = Vector2(1, 1)
-	$Tanks.add_child(n_tank)
-	
-func draw_tanks():
-	for tank in $Tanks.get_children():
-		tanks.remove_child(tank)
-	for i in range(int(player.data.tanks)):
-		create_tank()
-		
-
-func _ready():
-	draw_tanks()
+const TANK_FILLED = 23
 
 
 func _process(delta):
 	var p_tanks = player.data.tanks
-
-	
-	for tank in $Tanks.get_children():
-		var index = tank.get_index()
-		var x = index * TANK_OFFSET
-		tank.position = Vector2(x, 0)
-		
+	for i in range(len($Tanks.get_children())):
+		$Tanks.get_child(i).get_child(1).scale=Vector2(26, TANK_FILLED*(float(player.data.inventory[i][1])/float(player.data.tank_size)))
+		if player.data.inventory[i][0] != null:
+			$Tanks.get_child(i).add_child(player.data.inventory[i][0])
 
 	pass

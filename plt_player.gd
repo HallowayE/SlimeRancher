@@ -11,7 +11,7 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
-var inventory = []
+
 
 var stuck = false
 
@@ -23,8 +23,9 @@ var stuck = false
 	"energy": 100,
 	"money": 0,
 	"tanks": 3,
-	"tank_size": 50,
+	"tank_size": 25,
 	"secondaries": [],
+	"inventory": [],
 }
 
 func _ready():
@@ -33,7 +34,7 @@ func _ready():
 	$Camera2D.add_child.call_deferred(menu_instance)
 	menu_instance.hide()
 	for i in range(data.tanks):
-		inventory.append([null, 0])
+		data.inventory.append([null, 0])
 	
 	
 
@@ -52,12 +53,12 @@ func gun_physics():
 			object.global_position=self.global_position+(self.global_position.direction_to(get_global_mouse_position())*dis)
 			if dis < 25:
 				if object.is_in_group("Item"):
-					for i in inventory:
+					for i in data.inventory:
 						if i[0] == null or i[0] == object.get_scene_file_path():
 							i[0]=object.get_scene_file_path()
 							object.queue_free()
 							i[1]+=1
-							print(inventory)
+							print(data.inventory)
 							break
 					object.grav_on = true
 				else:
