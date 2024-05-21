@@ -11,7 +11,7 @@ var gravity_on = true
 var menu_scene = preload("res://my_gui.tscn")
 var menu_instance = null
 
-var select = 1
+var select = 0
 
 var stuck = false
 
@@ -84,9 +84,12 @@ func shoot(selected):
 	if data.inventory[selected][1] > 0:
 		var shoot = load(data.inventory[selected][0])
 		var shot = shoot.instantiate()
-		shot.position = self.position
 		$"..".add_child.call_deferred(shot)
+		shot.global_position = self.global_position+self.global_position.direction_to($Mouse.global_position)*25
+		shot.linear_velocity = self.global_position.direction_to($Mouse.global_position)*500
 		data.inventory[selected][1]-=1
+	if data.inventory[selected][1]==0:
+		data.inventory[selected][0] = null
 	
 
 func _physics_process(delta):
@@ -99,7 +102,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("3"):
 		select = 2
 		
-	if Input.is_action_pressed("left"):
+	if Input.is_action_just_pressed("left") and not stuck:
 		shoot(select)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -130,6 +133,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_just_pressed("ui_cancel"):  # Escape
 		gravity_on = not gravity_on
+		
+	if Input.is_action_just_pressed("ui_home"):
+		$"..".add_child.call_deferred(load("res://objects/items/slimes/slime.tscn").instantiate())
 	
 	move_and_slide()
 	$Camera2D.position=($Mouse.position)/5
