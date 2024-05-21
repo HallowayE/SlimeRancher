@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://boo1y2nxq86cj"]
+[gd_scene load_steps=4 format=3 uid="uid://boo1y2nxq86cj"]
 
 [ext_resource type="PackedScene" uid="uid://t515hkq7clr2" path="res://objects/items/item.tscn" id="1_b3n30"]
 [ext_resource type="Script" path="res://objects/items/food/food.gd" id="2_bv146"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o15gh"]
+bounce = 0.25
+
 [node name="food" groups=["Food"] instance=ExtResource("1_b3n30")]
+physics_material_override = SubResource("PhysicsMaterial_o15gh")
 script = ExtResource("2_bv146")

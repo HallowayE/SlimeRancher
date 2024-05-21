@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://t515hkq7clr2"]
+[gd_scene load_steps=5 format=3 uid="uid://t515hkq7clr2"]
 
 [ext_resource type="Script" path="res://objects/items/item.gd" id="1_kb31b"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qcg32"]
+bounce = 0.25
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7573k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4xy7"]
 
 [node name="item" type="RigidBody2D" groups=["Item", "Object"]]
+physics_material_override = SubResource("PhysicsMaterial_qcg32")
 script = ExtResource("1_kb31b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

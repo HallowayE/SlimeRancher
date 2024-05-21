@@ -457,6 +457,7 @@ position = Vector2(212.398, 11.8263)
 
 [node name="food" parent="." instance=ExtResource("4_ejb67")]
 position = Vector2(334.5, -6.5)
+physics_material_override = null
 
 [node name="object" parent="." instance=ExtResource("5_ihkj3")]
 position = Vector2(-19.3859, 40.4525)

@@ -73,7 +73,7 @@ func gun_physics():
 				stuck = false
 				object.col_shape.disabled= false
 				object.grav_on=true
-				object.linear_velocity = self.global_position.direction_to(object.global_position)*500
+				object.linear_velocity = (self.global_position.direction_to(object.global_position)*500)+self.velocity
 				
 			
 		if (Input.is_action_just_released("right") or !$Mouse.overlaps_body(object) and !($RayCast2D.is_colliding() and $RayCast2D.get_collider()==object)) and object.col_shape.disabled == false:
@@ -86,7 +86,7 @@ func shoot(selected):
 		var shot = shoot.instantiate()
 		$"..".add_child.call_deferred(shot)
 		shot.global_position = self.global_position+self.global_position.direction_to($Mouse.global_position)*25
-		shot.linear_velocity = self.global_position.direction_to($Mouse.global_position)*500
+		shot.linear_velocity = (self.global_position.direction_to($Mouse.global_position)*500)+self.velocity
 		data.inventory[selected][1]-=1
 	if data.inventory[selected][1]==0:
 		data.inventory[selected][0] = null
@@ -136,6 +136,8 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_home"):
 		$"..".add_child.call_deferred(load("res://objects/items/slimes/slime.tscn").instantiate())
+	if Input.is_action_just_pressed("ui_end"):
+		$"..".add_child.call_deferred(load("res://objects/items/food/food.tscn").instantiate())
 	
 	move_and_slide()
 	$Camera2D.position=($Mouse.position)/5
