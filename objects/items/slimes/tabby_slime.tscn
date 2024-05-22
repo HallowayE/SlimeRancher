@@ -1,5 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c01ka58kbln5k"]
+[gd_scene load_steps=3 format=3 uid="uid://c01ka58kbln5k"]
 
 [ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="1_7ycbg"]
+[ext_resource type="Script" path="res://objects/items/slimes/tabby_slime.gd" id="2_lalc4"]
 
 [node name="tabby_slime" instance=ExtResource("1_7ycbg")]
+script = ExtResource("2_lalc4")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 0.6, 1)

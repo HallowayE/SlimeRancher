@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=11 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://boo1y2nxq86cj" path="res://objects/items/food/food.tscn" id="4_ejb67"]
 [ext_resource type="PackedScene" uid="uid://c7reqs2cfar1j" path="res://objects/game_object.tscn" id="5_ihkj3"]
 [ext_resource type="PackedScene" uid="uid://conyypnlssger" path="res://player_hud.tscn" id="6_h8xn8"]
+[ext_resource type="PackedScene" uid="uid://c01ka58kbln5k" path="res://objects/items/slimes/tabby_slime.tscn" id="7_bhacu"]
+[ext_resource type="PackedScene" uid="uid://cq0owsu8heli4" path="res://spawner.tscn" id="8_l5wa7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0eqm2"]
 texture = ExtResource("2_30uvs")
@@ -463,3 +465,10 @@ physics_material_override = null
 position = Vector2(-19.3859, 40.4525)
 
 [node name="PlayerHUD" parent="." instance=ExtResource("6_h8xn8")]
+
+[node name="tabby_slime" parent="." instance=ExtResource("7_bhacu")]
+position = Vector2(728.844, -31.9807)
+
+[node name="Spawner" parent="tabby_slime" instance=ExtResource("8_l5wa7")]
+position = Vector2(385.156, 66.9807)
+slimes = ["res://objects/items/slimes/slime.tscn", "res://objects/items/slimes/tabby_slime.tscn"]
