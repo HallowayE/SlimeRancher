@@ -20,17 +20,13 @@ func _process(delta):
 	var p_tanks = player.data.tanks
 	for i in range(len($Tanks.get_children())):
 		$Tanks.get_child(i).get_child(1).scale=Vector2(26, TANK_FILLED*(float(player.data.inventory[i][1])/float(player.data.tank_size)))
-		var new_texture = Sprite2D.new()
 		if player.data.inventory[i][0] != null:
-			new_texture.texture = load(player.data.inventory[i][0]+".svg")
-			new_texture.scale=Vector2(0.125, 0.125)
-			new_texture.position+=Vector2(0, -23)
+			$Tanks.get_child(i).get_child(2).texture = load(player.data.inventory[i][0]+".svg")
 		else:
-			new_texture.texture = null
+			$Tanks.get_child(i).get_child(2).texture = null
 
 
 			
-			$Tanks.get_child(i).add_child(new_texture)
 	if Input.is_action_pressed("1"):
 		select(0)
 	if Input.is_action_pressed("2"):

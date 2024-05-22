@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c01ka58kbln5k"]
+
+[ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="1_7ycbg"]
+
+[node name="tabby_slime" instance=ExtResource("1_7ycbg")]

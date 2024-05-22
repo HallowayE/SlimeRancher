@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvg5rutsycvjy"]
+
+[ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="1_ks58b"]
+
+[sub_resource type="GDScript" id="GDScript_egbxp"]
+script/source = "class_name tabby_slime extends slime
+
+func _init(): super._init([\"Meat\"], \"henhen\")
+
+"
+
+[node name="tabby_slime" instance=ExtResource("1_ks58b")]
+script = SubResource("GDScript_egbxp")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.74902, 0.74902, 0.74902, 1)
