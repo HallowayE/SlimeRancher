@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq0owsu8heli4"]
+[gd_scene load_steps=3 format=3 uid="uid://cq0owsu8heli4"]
 
 [ext_resource type="Script" path="res://Spawner.gd" id="1_aaels"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gu8ib"]
 radius = 157.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ree4e"]
-radius = 1139.63
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_aaels")
@@ -16,10 +13,5 @@ slimes = ["res://object/items/slime.tscn", "res://object/items/tabby_slime.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_gu8ib")
-
-[node name="SlimeDetection" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeDetection"]
-shape = SubResource("CircleShape2D_ree4e")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_area_2d_body_entered"]

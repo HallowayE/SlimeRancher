@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://t515hkq7clr2"]
+[gd_scene load_steps=6 format=3 uid="uid://t515hkq7clr2"]
 
 [ext_resource type="Script" path="res://objects/items/item.gd" id="1_kb31b"]
+[ext_resource type="Texture2D" uid="uid://oe4u0c5ql40d" path="res://icon.svg" id="2_dmdxa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qcg32"]
 bounce = 0.25
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7573k"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7steq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dmdxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4xy7"]
 
@@ -13,9 +23,9 @@ bounce = 0.25
 physics_material_override = SubResource("PhysicsMaterial_qcg32")
 script = ExtResource("1_kb31b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_7573k")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.140625, 0.140625)
+sprite_frames = SubResource("SpriteFrames_7steq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g4xy7")
