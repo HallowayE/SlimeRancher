@@ -469,6 +469,6 @@ position = Vector2(-19.3859, 40.4525)
 [node name="tabby_slime" parent="." instance=ExtResource("7_bhacu")]
 position = Vector2(728.844, -31.9807)
 
-[node name="Spawner" parent="tabby_slime" instance=ExtResource("8_l5wa7")]
-position = Vector2(385.156, 66.9807)
+[node name="Spawner" parent="." instance=ExtResource("8_l5wa7")]
+position = Vector2(1114, 35)
 slimes = ["res://objects/items/slimes/slime.tscn", "res://objects/items/slimes/tabby_slime.tscn"]
