@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf30j2igq2rt"
-path="res://.godot/imported/Slime.png-0a377fb8ec9eafb6b497fa7e60d1e79b.ctex"
+uid="uid://d2bvynfluyakj"
+path="res://.godot/imported/tabby_slime.tscn.png-129de3186b4db37b919888208ad1f0b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Slime.png"
-dest_files=["res://.godot/imported/Slime.png-0a377fb8ec9eafb6b497fa7e60d1e79b.ctex"]
+source_file="res://objects/items/slimes/tabby_slime.tscn.png"
+dest_files=["res://.godot/imported/tabby_slime.tscn.png-129de3186b4db37b919888208ad1f0b3.ctex"]
 
 [params]
 

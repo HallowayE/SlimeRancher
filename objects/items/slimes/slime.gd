@@ -34,7 +34,8 @@ func point_towards(to):
 
 
 func _physics_process(delta):
-
+	if linear_velocity.y>100 or linear_velocity.y<-100:
+		rotation = linear_velocity.angle()+PI/2
 	var towards = point_towards("Food")
 	for food in get_tree().get_nodes_in_group("Food"):
 			if get_colliding_bodies().has(food):
@@ -42,6 +43,7 @@ func _physics_process(delta):
 				food.rotation=self.rotation
 	ai_timer = clamp(ai_timer-delta, 0, ai_timer_max)
 	if ai_timer==0:
+		
 		for food in get_tree().get_nodes_in_group("Food"):
 			if get_colliding_bodies().has(food):
 				food.queue_free()

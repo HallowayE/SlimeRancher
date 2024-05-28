@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxl0nkfi8r7c2"]
+[gd_scene load_steps=12 format=3 uid="uid://dxl0nkfi8r7c2"]
 
 [ext_resource type="PackedScene" uid="uid://bxxkvcco400sx" path="res://plt_player.tscn" id="1_dhcvt"]
+[ext_resource type="Texture2D" uid="uid://cpajys7k0f5ix" path="res://assets/sprites/image.png" id="1_tk2ek"]
 [ext_resource type="Texture2D" uid="uid://c33ud2gt676rc" path="res://assets/sprites/DryReef.png" id="2_30uvs"]
 [ext_resource type="PackedScene" uid="uid://bqqg4ybra7iqc" path="res://objects/items/slimes/slime.tscn" id="3_iwgkb"]
 [ext_resource type="PackedScene" uid="uid://boo1y2nxq86cj" path="res://objects/items/food/food.tscn" id="4_ejb67"]
@@ -443,6 +444,17 @@ sources/0 = SubResource("TileSetAtlasSource_0eqm2")
 
 [node name="DryReef" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_tk2ek")
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_pg1y8")
@@ -453,6 +465,7 @@ layer_0/tile_data = PackedInt32Array(262134, 131072, 1, 327670, 131072, 1, 39320
 position = Vector2(-2.15411, -4.02081)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="slime" parent="." instance=ExtResource("3_iwgkb")]
 position = Vector2(212.398, 11.8263)

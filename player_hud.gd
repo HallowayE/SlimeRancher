@@ -21,7 +21,7 @@ func _process(delta):
 	for i in range(len($Tanks.get_children())):
 		$Tanks.get_child(i).get_child(1).scale=Vector2(26, TANK_FILLED*(float(player.data.inventory[i][1])/float(player.data.tank_size)))
 		if player.data.inventory[i][0] != null:
-			$Tanks.get_child(i).get_child(2).texture = load(player.data.inventory[i][0]+".svg")
+			$Tanks.get_child(i).get_child(2).texture = load(player.data.inventory[i][0]+".png")
 		else:
 			$Tanks.get_child(i).get_child(2).texture = null
 
